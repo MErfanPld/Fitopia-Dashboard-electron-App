@@ -88,6 +88,10 @@ export const pricesService = {
     }
   },
 
+  async retrieve(gymId: number, id: number): Promise<GymPrice> {
+    return pricesService.get(gymId, id);
+  },
+
   async remove(gymId: number, id: number): Promise<void> {
     try {
       await api.delete(`/gym-panel/gyms/${gymId}/prices/${id}/`);
