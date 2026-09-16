@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* Fitopia Gym Owner Dashboard — Dark + Orange Design System */
+:root,
+[data-theme="dark"] {
+  --fitopia-background: #08090B;
+  --fitopia-sidebar: #0D0F12;
+  --fitopia-header: #111318;
+  --fitopia-surface: #111318;
+  --fitopia-surface-elevated: #15181D;
+  --fitopia-surface-hover: #1A1E26;
+  --fitopia-input: #111318;
+  --fitopia-input-focus: #15181D;
+  --fitopia-border: rgba(255, 255, 255, 0.08);
+  --fitopia-border-hover: rgba(255, 255, 255, 0.14);
+  --fitopia-ink: #F5F7FA;
+  --fitopia-secondary: #A1A7B3;
+  --fitopia-muted: #A1A7B3;
+  --fitopia-disabled: #6B7280;
+  --fitopia-primary: #FF8A1D;
+  --fitopia-primary-hover: #FF9F43;
+  --fitopia-primary-active: #E67510;
+  --fitopia-primary-soft: rgba(255, 138, 29, 0.12);
+  --fitopia-primary-soft-hover: rgba(255, 138, 29, 0.08);
+  --fitopia-primary-fg: #08090B;
+  --fitopia-success: #22C55E;
+  --fitopia-success-soft: rgba(34, 197, 94, 0.12);
+  --fitopia-success-text: #4ADE80;
+  --fitopia-warning: #F59E0B;
+  --fitopia-warning-soft: rgba(245, 158, 11, 0.12);
+  --fitopia-warning-text: #FBBF24;
+  --fitopia-danger: #EF4444;
+  --fitopia-danger-soft: rgba(239, 68, 68, 0.12);
+  --fitopia-danger-text: #F87171;
+  --fitopia-info: #3B82F6;
+  --fitopia-info-soft: rgba(59, 130, 246, 0.12);
+  --fitopia-info-text: #60A5FA;
+  --fitopia-skeleton: #1A1E26;
+  --fitopia-overlay: rgba(0, 0, 0, 0.72);
+  --fitopia-scrollbar: rgba(255, 255, 255, 0.12);
+  --fitopia-scrollbar-hover: rgba(255, 255, 255, 0.22);
+  --fitopia-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --fitopia-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] {
+  --fitopia-background: #F4F4F5;
+  --fitopia-sidebar: #FFFFFF;
+  --fitopia-header: #FFFFFF;
+  --fitopia-surface: #FFFFFF;
+  --fitopia-surface-elevated: #FFFFFF;
+  --fitopia-surface-hover: #F4F4F5;
+  --fitopia-input: #FFFFFF;
+  --fitopia-input-focus: #FFFFFF;
+  --fitopia-border: #E4E4E7;
+  --fitopia-border-hover: #D4D4D8;
+  --fitopia-ink: #18181B;
+  --fitopia-secondary: #3F3F46;
+  --fitopia-muted: #71717A;
+  --fitopia-disabled: #A1A1AA;
+  --fitopia-primary: #FF8A1D;
+  --fitopia-primary-hover: #E67510;
+  --fitopia-primary-active: #C45E00;
+  --fitopia-primary-soft: rgba(255, 138, 29, 0.12);
+  --fitopia-primary-soft-hover: rgba(255, 138, 29, 0.08);
+  --fitopia-primary-fg: #08090B;
+  --fitopia-success: #16A34A;
+  --fitopia-success-soft: rgba(22, 163, 74, 0.12);
+  --fitopia-success-text: #15803D;
+  --fitopia-warning: #D97706;
+  --fitopia-warning-soft: rgba(217, 119, 6, 0.12);
+  --fitopia-warning-text: #B45309;
+  --fitopia-danger: #DC2626;
+  --fitopia-danger-soft: rgba(220, 38, 38, 0.12);
+  --fitopia-danger-text: #B91C1C;
+  --fitopia-info: #2563EB;
+  --fitopia-info-soft: rgba(37, 99, 246, 0.12);
+  --fitopia-info-text: #1D4ED8;
+  --fitopia-skeleton: #E4E4E7;
+  --fitopia-overlay: rgba(24, 24, 27, 0.40);
+  --fitopia-scrollbar: rgba(0, 0, 0, 0.18);
+  --fitopia-scrollbar-hover: rgba(0, 0, 0, 0.28);
+  --fitopia-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --fitopia-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+@theme {
+  --color-background: var(--fitopia-background);
+  --color-sidebar: var(--fitopia-sidebar);
+  --color-header: var(--fitopia-header);
+  --color-surface: var(--fitopia-surface);
+  --color-surface-elevated: var(--fitopia-surface-elevated);
+  --color-surface-hover: var(--fitopia-surface-hover);
+  --color-input: var(--fitopia-input);
+  --color-input-focus: var(--fitopia-input-focus);
+  --color-border: var(--fitopia-border);
+  --color-border-hover: var(--fitopia-border-hover);
+  --color-ink: var(--fitopia-ink);
+  --color-secondary: var(--fitopia-secondary);
+  --color-muted: var(--fitopia-muted);
+  --color-disabled: var(--fitopia-disabled);
+  --color-primary: var(--fitopia-primary);
+  --color-primary-hover: var(--fitopia-primary-hover);
+  --color-primary-active: var(--fitopia-primary-active);
+  --color-primary-soft: var(--fitopia-primary-soft);
+  --color-primary-fg: var(--fitopia-primary-fg);
+  --color-success: var(--fitopia-success);
+  --color-success-soft: var(--fitopia-success-soft);
+  --color-success-text: var(--fitopia-success-text);
+  --color-warning: var(--fitopia-warning);
+  --color-warning-soft: var(--fitopia-warning-soft);
+  --color-warning-text: var(--fitopia-warning-text);
+  --color-danger: var(--fitopia-danger);
+  --color-danger-soft: var(--fitopia-danger-soft);
+  --color-danger-text: var(--fitopia-danger-text);
+  --color-info: var(--fitopia-info);
+  --color-info-soft: var(--fitopia-info-soft);
+  --color-info-text: var(--fitopia-info-text);
+  --color-skeleton: var(--fitopia-skeleton);
+  --color-canvas: var(--fitopia-background);
+  --color-line: var(--fitopia-border);
+  --color-accent: var(--fitopia-primary-hover);
+  --color-muted-2: var(--fitopia-muted);
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { direction: rtl; }
+  body {
+    @apply bg-background text-ink font-sans antialiased;
+    margin: 0;
+    min-height: 100vh;
+  }
+  #root { min-height: 100vh; }
+  * { border-color: var(--fitopia-border); }
+  ::selection {
+    background: color-mix(in srgb, var(--fitopia-primary) 35%, transparent);
+    color: #fff;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--fitopia-scrollbar);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--fitopia-scrollbar-hover); }
+  input, select, textarea { color-scheme: inherit; }
+  [data-theme="dark"] input,
+  [data-theme="dark"] select,
+  [data-theme="dark"] textarea { color-scheme: dark; }
+  [data-theme="light"] input,
+  [data-theme="light"] select,
+  [data-theme="light"] textarea { color-scheme: light; }
+}
+
+@keyframes fitopia-modal-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fitopia-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fitopia-modal-panel { animation: fitopia-modal-in 0.22s ease-out; }
+.fitopia-modal-overlay { animation: fitopia-overlay-in 0.2s ease-out; }
