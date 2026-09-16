@@ -30,7 +30,7 @@ export const membersService = {
       const { data } = await api.post(
         `/gym-panel/gyms/${gymId}/members/`,
         toRequestBody(body, payload.photo),
-        payload.photo instanceof File ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined,
+        (payload.photo as unknown) instanceof File ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined,
       );
       return data;
     } catch (e) {
@@ -44,7 +44,7 @@ export const membersService = {
       const { data } = await api.patch(
         `/gym-panel/gyms/${gymId}/members/${id}/`,
         toRequestBody(body, payload.photo),
-        payload.photo instanceof File ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined,
+        (payload.photo as unknown) instanceof File ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined,
       );
       return data;
     } catch (e) {
