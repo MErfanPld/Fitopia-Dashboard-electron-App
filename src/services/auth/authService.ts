@@ -5,12 +5,19 @@ const GYMS_KEY = 'fitopia_gym_access';
 const CURRENT_GYM_KEY = 'fitopia_current_gym';
 const USER_KEY = 'fitopia_user';
 
+export type LoginResult = {
+  access: string;
+  refresh: string;
+  user: AuthUser;
+  gyms: GymAccess[];
+};
+
 function isJwt(token: string): boolean {
   return token.split('.').length === 3 && token.length > 20;
 }
 
 export const authService = {
-  async login(username: string, password: string) {
+  async login(username: string, password: string): Promise<LoginResult> {
     try {
       const { data } = await api.post<LoginResponse>('/gym-panel/auth/login/', {
         username: username.trim(),
@@ -52,10 +59,6 @@ export const authService = {
   persistCurrentGym(gym: GymAccess) {
     localStorage.setItem(CURRENT_GYM_KEY, JSON.stringify(gym));
   },
-  /**
-   * Create a Fitopia user account (OpenAPI: POST /accounts/register/).
-   * Used when onboarding a new employee so StaffAccess.user points to a real User.
-   */
   async registerUser(payload: {
     phone_number?: string;
     username?: string;
