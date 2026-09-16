@@ -43,7 +43,8 @@ try {
   await waitOn({ resources: ['http://127.0.0.1:3000'], timeout: 90000, interval: 400 });
   console.log('[dev] Vite ready — launching Electron');
   const electronBin = path.join(root, 'node_modules', 'electron', 'cli.js');
-  const electron = spawn(process.execPath, [electronBin, '.'], {
+  const electronArgs = [electronBin, '.', '--no-sandbox'];
+  const electron = spawn(process.execPath, electronArgs, {
     cwd: root,
     stdio: 'inherit',
     env: {
