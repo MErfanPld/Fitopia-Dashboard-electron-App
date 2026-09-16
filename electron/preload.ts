@@ -1,5 +1,6 @@
 /**
  * Fitopia Gym Manager — Secure Preload Bridge
+ * Exposes only a narrow API via contextBridge. Do not expose ipcRenderer.
  */
 
 import { contextBridge, ipcRenderer } from 'electron';
@@ -47,9 +48,3 @@ const electronAPI: ElectronAPI = {
 };
 
 contextBridge.exposeInMainWorld('electronAPI', electronAPI);
-
-declare global {
-  interface Window {
-    electronAPI: ElectronAPI;
-  }
-}

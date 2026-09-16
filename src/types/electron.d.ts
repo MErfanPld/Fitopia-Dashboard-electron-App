@@ -1,3 +1,7 @@
+/**
+ * Type definitions for the secure Electron preload bridge.
+ */
+
 export interface ElectronAPI {
   app: {
     getVersion: () => Promise<string>;
