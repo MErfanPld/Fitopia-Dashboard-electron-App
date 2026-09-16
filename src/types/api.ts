@@ -56,7 +56,7 @@ export type GymCustomer = GymMember;
 export interface GymMemberInput {
   fitopia_user?: number | null; full_name: string; phone: string; sport?: number | null; coach?: number | null;
   source?: MemberSource; sessions_total?: number | null; sessions_remaining?: number | null;
-  sessions_used?: number | null; price_paid?: number | null; join_date: string; photo?: string | null;
+  sessions_used?: number | null; price_paid?: number | null; join_date: string; photo?: File | string | null;
   membership_status?: MembershipStatus | string; membership_type?: MembershipType;
   membership_start?: string | null; membership_end?: string | null; notes?: string | null; is_active?: boolean;
 }
@@ -192,6 +192,9 @@ export interface FinanceTransaction {
 export interface CustomerPayment {
   id: number; customer: number; total_price: number; amount_paid: number; discount?: number;
   remaining_balance?: number; description?: string; payment_method?: string; reference_number?: string; created_at?: string;
+  /** legacy / alternate field names from some API responses */
+  total_amount?: number;
+  paid_amount?: number;
 }
 export interface Refund {
   id: number; original_transaction: number; amount: number; reason?: string; status?: string;
@@ -202,6 +205,10 @@ export interface FinanceReport {
   monthly: { income: number; expense: number; net: number };
   income_by_category?: { category: string; total: number }[];
   outstanding_balances?: { customer_id: number; customer_name: string; remaining: number; payment_id: number }[];
+  /** aggregated helpers used by FinancePage (optional) */
+  total_income?: number;
+  total_expense?: number;
+  transaction_count?: number;
 }
 
 /** OpenAPI / SingleSessionPurchase */
