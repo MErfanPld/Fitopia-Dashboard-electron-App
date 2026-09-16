@@ -324,7 +324,7 @@ export const PricesPage: React.FC = () => {
             <FormField
               label="رشته"
               required
-              as="select"
+              isSelect
               value={form.sport}
               error={formErrors.sport}
               options={[
